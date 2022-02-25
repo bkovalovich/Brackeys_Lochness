@@ -9,10 +9,13 @@ public class PlayerScript : MonoBehaviour
     public static float health = 10f;
     public static float hunger = 10f;
     public static float clout = 10f;
+    public float hungerCap;
+
+    public SpriteRenderer sprite; //getting sprite renderer to flip sprite when moving left/right
 
     void Start()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();//initializing sprite renderer
     }
 
     void Movement() {
@@ -26,9 +29,11 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKey("a") && transform.position.x > -8.2f) { //LEFT
             transform.position -= transform.right * movementSpeed;
+            sprite.flipX = false;
         }
         if (Input.GetKey("d") && transform.position.x < 7.5f) { //RIGHT
             transform.position += transform.right * movementSpeed;
+            sprite.flipX = true;
         }
     }
 
@@ -56,10 +61,16 @@ public class PlayerScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision) {
         switch (collision.gameObject.tag) {
             case "LessTastyFish":
-                hunger += 0.2f;
+                if(hunger < hungerCap)
+                {
+                    hunger += 0.2f;
+                }
                 break;
             case "TastyFish":
-                hunger += 5f;
+                if(hunger < hungerCap)
+                {
+                    hunger += 5f;
+                }               
                 break;
             default:
                 break;
@@ -67,8 +78,12 @@ public class PlayerScript : MonoBehaviour
         }
 
         void Update() {
+        if (hunger >= hungerCap)
+        {
+            hunger = hungerCap;
+        }
         DebugPrints();
         Movement();
-        IncrementTimers();
+        IncrementTimers();       
     }
 }
