@@ -203,64 +203,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65949969}
   m_CullTransparentMesh: 1
---- !u!1 &313406628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 313406630}
-  - component: {fileID: 313406629}
-  m_Layer: 3
-  m_Name: Tourist_Floor (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &313406629
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313406628}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!4 &313406630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313406628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.44, y: 3.01, z: -0.06066943}
-  m_LocalScale: {x: 11.637, y: 0.1125, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448359006
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +359,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.873626
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -944,6 +886,8 @@ MonoBehaviour:
   lessTastyFishRate: 5
   tastyFishPrefab: {fileID: 5616200536423666244, guid: 145126888c478f44ba07ca1204f1e1a9, type: 3}
   tastyFishRate: 3
+  diverPrefab: {fileID: 288026227257772990, guid: 248161dd6724ff2409b0b59aa486310e, type: 3}
+  diverRate: 3
 --- !u!1 &2051084258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +982,10 @@ PrefabInstance:
     - target: {fileID: 2964417149930618232, guid: 376141ca7fd714f4eb993bd239ee08da, type: 3}
       propertyPath: m_Name
       value: Depth1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964417149930618232, guid: 376141ca7fd714f4eb993bd239ee08da, type: 3}
+      propertyPath: m_TagString
+      value: Depth
       objectReference: {fileID: 0}
     - target: {fileID: 2964417149930618233, guid: 376141ca7fd714f4eb993bd239ee08da, type: 3}
       propertyPath: m_SortingOrder
@@ -1148,7 +1096,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5000290864856615079, guid: b94c1d6d5f2852441bf131d1bd9ebca5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b94c1d6d5f2852441bf131d1bd9ebca5, type: 3}
 --- !u!1001 &7013283273168342300
 PrefabInstance:
@@ -1237,6 +1186,10 @@ PrefabInstance:
     - target: {fileID: 7453159111924795569, guid: ea37edb9823927b4db65fa469afc823c, type: 3}
       propertyPath: m_Name
       value: Depth2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453159111924795569, guid: ea37edb9823927b4db65fa469afc823c, type: 3}
+      propertyPath: m_TagString
+      value: Depth
       objectReference: {fileID: 0}
     - target: {fileID: 7453159111924795575, guid: ea37edb9823927b4db65fa469afc823c, type: 3}
       propertyPath: m_RootOrder
@@ -1338,6 +1291,10 @@ PrefabInstance:
     - target: {fileID: 9097866852012507975, guid: 03bca5ffc4f1a2f47ba74dbe27aaa4f9, type: 3}
       propertyPath: m_Name
       value: Depth3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097866852012507975, guid: 03bca5ffc4f1a2f47ba74dbe27aaa4f9, type: 3}
+      propertyPath: m_TagString
+      value: Depth
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03bca5ffc4f1a2f47ba74dbe27aaa4f9, type: 3}

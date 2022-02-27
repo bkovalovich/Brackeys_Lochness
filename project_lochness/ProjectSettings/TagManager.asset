@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LessTastyFish
   - TastyFish
+  - Depth
   layers:
   - Default
   - TransparentFX
