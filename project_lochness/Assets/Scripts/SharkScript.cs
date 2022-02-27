@@ -15,30 +15,20 @@ public class SharkScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private int health = 2;
 
     void Start()
-    { 
-        depthScript = depth.GetComponent<DepthScript>();
+    {
         playerScript = player.GetComponent<PlayerScript>();
+        depthScript = depth.GetComponent<DepthScript>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if(depthScript.PlayerInDepth == true)//check if player is in depth and moves
+        if(depthScript.playerInDepth == true)//check if player is in depth and moves
         {
             Debug.Log("depth");
-            if (player.transform.position.y > transform.position.y)//follow up
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 1 * swimSpeed);
-            }
-            else if (player.transform.position.y < transform.position.y)//follow down
-            {
-                rb.velocity = new Vector2(rb.velocity.x, -1 * swimSpeed);
-            }
             if(player.transform.position.x > transform.position.x)//follow right
             {
                 sr.flipX = false;
@@ -49,7 +39,14 @@ public class SharkScript : MonoBehaviour
                 sr.flipX = true;
                 LateralMove();
             }
-            
+            if(player.transform.position.y > transform.position.y)//follow up
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 1 * swimSpeed);
+            }
+            else if(player.transform.position.y < transform.position.y)//follow down
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -1 * swimSpeed);
+            }
 
         }
         else//if player not in depth continue moving left or right
@@ -79,14 +76,5 @@ public class SharkScript : MonoBehaviour
         {
             rb.velocity = new Vector2(-1 * swimSpeed, rb.velocity.y);
         }
-    }
-    public void Damage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-            
     }
 }

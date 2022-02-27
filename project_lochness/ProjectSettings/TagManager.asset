@@ -6,9 +6,6 @@ TagManager:
   tags:
   - LessTastyFish
   - TastyFish
-  - driftWood
-  - shark
-  - driftwood
   layers:
   - Default
   - TransparentFX
@@ -16,8 +13,8 @@ TagManager:
   - ground
   - Water
   - UI
-  - backGround
-  - attack
+  - 
+  - 
   - 
   - 
   - 
