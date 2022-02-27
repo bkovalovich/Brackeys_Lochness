@@ -21,18 +21,18 @@ public class PlayerScript : MonoBehaviour
     void Movement() {
 
         if (Input.GetKey("w") && transform.position.y < 3f) { //UP
-            transform.position += transform.up * movementSpeed;
+            transform.position += transform.up * movementSpeed * Time.deltaTime;
         }
         
         if (Input.GetKey("s") && transform.position.y > -4.4f) { //DOWN
-            transform.position -= transform.up * movementSpeed;
+            transform.position -= transform.up * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey("a") && transform.position.x > -8.2f) { //LEFT
-            transform.position -= transform.right * movementSpeed;
+            transform.position -= transform.right * movementSpeed * Time.deltaTime;
             sprite.flipX = false;
         }
         if (Input.GetKey("d") && transform.position.x < 7.5f) { //RIGHT
-            transform.position += transform.right * movementSpeed;
+            transform.position += transform.right * movementSpeed * Time.deltaTime;
             sprite.flipX = true;
         }
     }
@@ -82,8 +82,12 @@ public class PlayerScript : MonoBehaviour
         {
             hunger = hungerCap;
         }
-        DebugPrints();
+        //DebugPrints();
         Movement();
         IncrementTimers();       
+    }
+    public void Damage(float damage)
+    {
+        health -= damage;
     }
 }

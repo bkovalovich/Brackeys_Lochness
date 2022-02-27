@@ -127,6 +127,8 @@ MonoBehaviour:
     m_Bits: 8
   rb: {fileID: 7013283273306082257}
   running: 0
+  maxRange: 10
+  runChance: 5
 --- !u!50 &7013283273306082257
 Rigidbody2D:
   serializedVersion: 4

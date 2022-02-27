@@ -13,31 +13,53 @@ public class TouristScript : MonoBehaviour
     public LayerMask ground;
     public Rigidbody2D rb;
     public bool running = false;
+    public float maxRange;
+    public float runChance;
+
+    private float timer;
+    private float maxTimer = 3;
+    private float chance;
+    private int lookedAround = 0;
 
     void Start()
     {
         depthScript = depth.GetComponent<DepthScript>();
         rb = GetComponent<Rigidbody2D>();
+        chance = maxRange;
+        timer = maxTimer;
     }
     // Update is called once per frame
     void Update()
     {
-        lookOut = !Physics2D.Raycast(lookoutPoint.position, Vector2.down, .2f, ground);
-        if(running == true)
+        lookOut = !Physics2D.Raycast(lookoutPoint.position, Vector2.down, .2f, ground);//checks if tourist is at cliff
+        if(running == true)//tourist runs away
         {
             Run();
         }
         else
         {
-            if (lookOut && depthScript.PlayerInDepth)
+            if(timer <= 0)
             {
-                running = true;
+                if (lookOut && depthScript.PlayerInDepth)//ckecks requirements for tourist running away
+                {
+                    chance = Random.Range(1f, maxRange);
+                    if (chance <= runChance)
+                    {
+                        running = true;
+                    }
+                    else
+                    {
+                        timer = maxTimer;
+                        lookedAround += 1;
+                    }
+                }    
             }
-            else if (lookOut)
+            if (lookOut)//stopping at cliff
             {
                 rb.velocity = Vector2.zero;
+                timer -= 1 * Time.deltaTime;
             }
-            else
+            else//going up to the cliff
             {
                 rb.velocity = new Vector2(1 * walkSpeed, rb.velocity.y);
             }
