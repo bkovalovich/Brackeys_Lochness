@@ -58,7 +58,8 @@ public class PlayerScript : MonoBehaviour
     }
 
     //Collider, gives health and 
-    public void OnTriggerEnter2D(Collider2D collision) {
+    public void OnTriggerEnter2D(Collider2D collision) 
+    {
         switch (collision.gameObject.tag) {
             case "LessTastyFish":
                 if(hunger < hungerCap)
@@ -75,9 +76,9 @@ public class PlayerScript : MonoBehaviour
             default:
                 break;
         }
-        }
+    }
 
-        void Update() {
+    void Update() {
         if (hunger >= hungerCap)
         {
             hunger = hungerCap;

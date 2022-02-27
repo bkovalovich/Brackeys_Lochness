@@ -1,5 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2004328229970348079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2918813648553248338}
+  - component: {fileID: 8680583696441457016}
+  - component: {fileID: 2902191984920136060}
+  m_Layer: 0
+  m_Name: attackZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2918813648553248338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004328229970348079}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.66, y: -0.07, z: -0.06374453}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5000290864856615076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &8680583696441457016
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004328229970348079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.49691343, y: 0.06854016}
+  m_Size: {x: 1.4455135, y: 0.7601181}
+  m_Direction: 1
+--- !u!114 &2902191984920136060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004328229970348079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251f0108a2bdac64eb676dd9e5443655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shark: {fileID: 419506639736931958, guid: d0adcb407e14b4f438a7f135342af913, type: 3}
+  driftWood: {fileID: 2261983137629897788, guid: 87b7335fd83eb3240bcd0c1b7b20fbfc, type: 3}
+  sharkScript: {fileID: 419506639736931957, guid: d0adcb407e14b4f438a7f135342af913, type: 3}
+  driftWoodScript: {fileID: 2261983137629897791, guid: 87b7335fd83eb3240bcd0c1b7b20fbfc, type: 3}
 --- !u!1 &5000290864856615073
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +97,8 @@ Transform:
   m_LocalPosition: {x: 0.82, y: -1.9, z: -0.12914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2918813648553248338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -137,8 +203,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 0.8}
+  m_Offset: {x: 0.018779637, y: -0.000000002238707}
+  m_Size: {x: 1.962482, y: 0.80002147}
   m_Direction: 1
 --- !u!61 &5000290864856615079
 BoxCollider2D:

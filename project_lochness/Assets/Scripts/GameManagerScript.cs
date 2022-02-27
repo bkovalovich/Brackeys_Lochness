@@ -16,11 +16,15 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] public GameObject tastyFishPrefab;
     [SerializeField] public float tastyFishRate;
 
+    public GameObject touristPrefab;
+    public float touristRate;
+    public Transform touristSpawn;
+
 
     void Start() {
         InvokeRepeating("GenerateLessTastyFish", 2f, lessTastyFishRate);
         InvokeRepeating("GenerateTastyFish", 5f, tastyFishRate);
-
+        InvokeRepeating("GenerateTourist", 15f, touristRate);
     }
 
     void GenerateLessTastyFish() {
@@ -29,6 +33,12 @@ public class GameManagerScript : MonoBehaviour
 
     void GenerateTastyFish() {
         Instantiate(tastyFishPrefab, new Vector3(8f, 2f, 0f), new Quaternion(0, 0, 0, 0));
+    }
+
+    void GenerateTourist()
+    {
+        touristRate = Random.Range(13f, 18f);
+        Instantiate(touristPrefab, new Vector3(touristSpawn.position.x, touristSpawn.position.y, 0), touristSpawn.rotation);
     }
 
     void Update()
