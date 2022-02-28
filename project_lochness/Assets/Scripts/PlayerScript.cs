@@ -51,9 +51,9 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (hunger <= 0) {
-            health -= 0.001f;
+            health -= 0.01f;
         } else {
-            hunger -= 0.00001f;
+            hunger -= 0.001f;
         }
     }
 

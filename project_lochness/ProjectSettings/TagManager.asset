@@ -7,6 +7,8 @@ TagManager:
   - LessTastyFish
   - TastyFish
   - Depth
+  - Diver
+  - Computer
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public enum DiverState {
     Jumping,
     LookingforPlayer,
     EscapingPlayer,
+    Done,
 }
 
 public class DiverScript : MonoBehaviour
@@ -26,6 +27,7 @@ public class DiverScript : MonoBehaviour
     private float currentActionTimer;
     private float currentMethod;
     private int maxAmountofMethods = 5;
+
 
 
     void Start() {
@@ -65,7 +67,7 @@ public class DiverScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         switch (diverState) {
             case DiverState.WalkingToEnter:
                 if(currentWalkTime < walkTime) {
@@ -86,16 +88,17 @@ public class DiverScript : MonoBehaviour
                 break;
             case DiverState.LookingforPlayer:
                 if (playerNearby) {
-                    Debug.Log("yuh");
-
                     diverState = DiverState.EscapingPlayer;
                 } else {
                     IdlingAround();
                  }
                 break;
             case DiverState.EscapingPlayer:
-
-                transform.position += transform.up * 2f * Time.deltaTime;
+                FrontpageScript.noOfPosts++;
+                diverState = DiverState.Done;
+                break;
+            case DiverState.Done:
+                transform.position += transform.up * 4f * Time.deltaTime;
                 break; 
 
         }

@@ -13,13 +13,15 @@ public class TouristScript : MonoBehaviour
     public LayerMask ground;
     public Rigidbody2D rb;
     public bool running = false;
+    public bool walkingAway = false;
     public float maxRange;
     public float runChance;
 
     private float timer;
-    private float maxTimer = 3;
+    private float maxTimer = 1;
     private float chance;
     private int lookedAround = 0;
+
 
     void Start()
     {
@@ -36,6 +38,10 @@ public class TouristScript : MonoBehaviour
         {
             Run();
         }
+        else if(walkingAway == true)
+        {
+            WalkAway();
+        }
         else
         {
             if(timer <= 0)
@@ -51,8 +57,21 @@ public class TouristScript : MonoBehaviour
                     {
                         timer = maxTimer;
                         lookedAround += 1;
+                        if(lookedAround >= 6)
+                        {
+                            walkingAway = true;
+                        }
                     }
-                }    
+                }
+                else
+                {
+                    timer = maxTimer;
+                    lookedAround += 1;
+                    if (lookedAround >= 6)
+                    {
+                        walkingAway = true;
+                    }
+                }
             }
             if (lookOut)//stopping at cliff
             {
@@ -68,5 +87,9 @@ public class TouristScript : MonoBehaviour
     void Run()
     {
         rb.velocity = new Vector2(-1 * runSpeed, rb.velocity.y);
+    }
+    void WalkAway()
+    {
+        rb.velocity = new Vector2(-1 * walkSpeed, rb.velocity.y);
     }
 }

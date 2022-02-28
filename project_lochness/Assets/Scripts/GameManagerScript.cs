@@ -19,11 +19,14 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] public GameObject diverPrefab;
     [SerializeField] public float diverRate;
 
+    public GameObject TouristPrefab;
+    public float touristRate;
 
     void Start() {
         InvokeRepeating("GenerateLessTastyFish", 2f, lessTastyFishRate);
         InvokeRepeating("GenerateTastyFish", 5f, tastyFishRate);
         InvokeRepeating("GenerateDivers", 3f, tastyFishRate);
+        InvokeRepeating("GenerateTourists", 14f, touristRate);
 
     }
 
@@ -38,6 +41,10 @@ public class GameManagerScript : MonoBehaviour
     void GenerateDivers() {
         Instantiate(diverPrefab, new Vector3(9.99f, 3.56f, 0f), new Quaternion(0, 0, 0, 0));
 
+    }
+    void GenerateTourists()
+    {
+        Instantiate(TouristPrefab, new Vector3(-8f, 4f, 0f), new Quaternion(0, 0, 0, 0));
     }
 
     void Update()
